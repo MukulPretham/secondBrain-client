@@ -41,7 +41,7 @@ const SignUp = () => {
 
     return (
         <div className='w-[100%] h-[92%] flex justify-center items-center '>
-            <form onSubmit={handleSubmit(onSubmit)} className='bg-white p-10 rounded-2xl shadow-2xl w-96'>
+            <form onSubmit={handleSubmit(onSubmit)} className='p-10 bg-gray-600 rounded-2xl shadow-2xl w-96'>
                 <h2 className='text-3xl font-bold mb-6 text-center text-gray-800'>Sign Up</h2>
                 {loading&&<div>Loading...</div>}
                 {errors&&<div>{errors}</div>}

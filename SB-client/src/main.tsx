@@ -9,6 +9,9 @@ import Home from './components/Home.tsx';
 import SignIn from './components/SignIn.tsx';
 import Youtube from './components/Youtube.tsx';
 import AddLink from './components/AddLink.tsx';
+import Instagram from './components/Instagram.tsx';
+import News from './components/News.tsx';
+import Documents from './components/Documents.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +19,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {index:true, element: <Home/> },
+      {path:"addLink", element: <AddLink/>},
       {path: "/youtube-Links", element: <Youtube/>},
-      {path:"/addLink", element: <AddLink/>},
+      {path: "/instagram-Links", element: <Instagram/>},
+      {path: "/news-Links", element: <News/>},
+      {path:"/documents-Links", element: <Documents/>},
       {path:"signUp", element: <SignUp/>},
       {path:"signIn", element: <SignIn/>}
     ]

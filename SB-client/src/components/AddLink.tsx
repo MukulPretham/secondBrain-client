@@ -22,7 +22,7 @@ const AddLink = () => {
         let content: Content = {
             type: data.type,
             link: data.link,
-            title: data.link,
+            title: data.title,
             tags: tagsArray
         }
         let token = localStorage.getItem("token");
@@ -49,7 +49,7 @@ const AddLink = () => {
     }
     return (
         <div className='w-[100%] h-[92%]'>
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-6 rounded-2xl shadow-lg w-96">
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-700 p-6 rounded-2xl shadow-lg w-96">
                 <h2 className="text-2xl font-semibold text-purple-600 mb-4">Submit Data</h2>
                 
                 <label className="block mb-2 text-gray-700">Link</label>

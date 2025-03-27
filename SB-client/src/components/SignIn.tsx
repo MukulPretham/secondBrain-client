@@ -41,7 +41,7 @@ const SignIn = () => {
 
     return (
         <div className='w-[100%] h-[92%] flex justify-center items-center '>
-            <form onSubmit={handleSubmit(onSubmit)} className='bg-white p-10 rounded-2xl shadow-2xl w-96'>
+            <form onSubmit={handleSubmit(onSubmit)} className='p-10 rounded-2xl bg-gray-600 shadow-2xl w-96'>
                 <h2 className='text-3xl font-bold mb-6 text-center text-gray-800'>Sign Up</h2>
                 {errors&&<div>{errors}</div>}
                 <input {...register("username")} type='text' name='username' placeholder='Username' className='w-full p-4 mb-5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200' required />
