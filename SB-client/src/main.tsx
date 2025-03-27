@@ -4,13 +4,18 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider, } from "react-router";
 import { RecoilRoot } from 'recoil';
+import SignUp from './components/SignUp.tsx';
+import Home from './components/Home.tsx';
+import SignIn from './components/SignIn.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-
+      {index:true, element: <Home/> },
+      {path:"signUp", element: <SignUp/>},
+      {path:"signIn", element: <SignIn/>}
     ]
   }
 ])
