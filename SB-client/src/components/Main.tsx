@@ -5,7 +5,7 @@ import { Outlet } from 'react-router'
 
 const Main = () => {
     return (
-        <div className='h-[100%] bg-gray-900 w-[100%] md:w-[76%]'>
+        <div className='h-[100%] bg-gray-900 w-[100%] md:w-[76%] overflow-scroll'>
             <Auth />
             <Outlet/>
         </div>

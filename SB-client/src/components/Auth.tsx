@@ -9,7 +9,7 @@ const Auth = () => {
     const logged = useRecoilValue(logAtom);
     const setLogged = useSetRecoilState(logAtom);
     return (
-        <div className='from-gray-900 to-black w-[100%] h-[8%] flex justify-end items-center'>
+        <div className='from-gray-900 sticky to-0% to-black w-[100%] h-[8%] flex justify-end items-center'>
             <div onClick={() => { setMenu(true) }} className='absolute left-0 text-5xl md:hidden'>☰</div>
             <div className="flex gap-2">
                 {logged ? <>

@@ -42,11 +42,12 @@ const Youtube = () => {
   }
 
   return (
-    <div className="bg-gray-900 text-white rounded-2xl p-4 shadow-lg w-full max-w-md">
+    <div className="bg-gray-900 text-white rounded-2xl p-4 flex flex-wrap shadow-lg w-[100%] h-[92%] overflow-scroll">
       {loading && <>Loading...</>}
       {ytData.map((data, index) => (data.type == "youtube" &&
         <div key={index} className="bg-gray-900 text-white rounded-2xl p-4 shadow-lg w-full max-w-md">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex-col items-center gap-2 mb-2">
+            <iframe src={data.link.replace("watch?v=","embed/")}></iframe>
             <a href={data.link} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline text-sm">View Details</a>
             <span className="bg-blue-600 text-xs text-white px-2 py-1 rounded-md">{data.type}</span>
             <h3 className="text-lg font-semibold">{data.title}</h3>
