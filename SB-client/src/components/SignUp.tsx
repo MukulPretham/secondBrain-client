@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import { useRecoilValue, useSetRecoilState } from "recoil"
 import { signUpErrors } from "../atoms/signUperr"
 import { useState } from "react"
+import { hostAtom } from "../atoms/host"
 
 type Inputs = {
     username: string
@@ -14,11 +15,12 @@ const SignUp = () => {
     const { register,handleSubmit } = useForm<Inputs>();
     let [loading,setLoading] = useState(false);
     let [messages,setMessages] = useState("");
+    let hostUrl = useRecoilValue(hostAtom);
 
     let onSubmit = async(data: Inputs)=>{
         console.log(data);
         setLoading(true);
-        let response = await fetch("http://localhost:3000/api/v1/signUp",{
+        let response = await fetch(`${hostUrl}api/v1/signUp`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -12,6 +12,7 @@ import AddLink from './components/AddLink.tsx';
 import Instagram from './components/Instagram.tsx';
 import News from './components/News.tsx';
 import Documents from './components/Documents.tsx';
+import App2 from './App2.tsx';
 
 const router = createBrowserRouter([
   {

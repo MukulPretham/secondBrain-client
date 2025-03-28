@@ -23,9 +23,7 @@ function App() {
     }
 },[])
 
-  useEffect(()=>{
-    setMenu(true);
-  },[])
+  
   return (
       <div className='z-0 h-[100%] flex'>
         {menu&&<NavBar />}

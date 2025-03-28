@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Tweet } from 'react-tweet';
+import { useRecoilValue } from 'recoil';
+import { hostAtom } from '../atoms/host';
 
 interface YtDataType { _id: any, link: string; type: string; title: string; tags: string[]; }
 
@@ -8,6 +10,7 @@ interface YtDataType { _id: any, link: string; type: string; title: string; tags
 const News = () => {
   const [ytData, setYtData] = useState<YtDataType[]>([]);
   const [loading, setLoading] = useState(false);
+  let hostUrl = useRecoilValue(hostAtom);
 
   useEffect(() => {
     
@@ -15,7 +18,7 @@ const News = () => {
       setLoading(true);
       let token = localStorage.getItem('token');
       if (!token) return;
-      let response = await fetch('http://localhost:3000/api/v1/content', {
+      let response = await fetch(`${hostUrl}api/v1/content`, {
         headers: {
           'Content-Type': 'application/json',
           "authorization": token
@@ -36,7 +39,7 @@ const News = () => {
     if (!token) {
       return
     }
-    let response = await fetch(`http://localhost:3000/api/v1/content/${para}`, {
+    let response = await fetch(`${hostUrl}api/v1/content/${para}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',

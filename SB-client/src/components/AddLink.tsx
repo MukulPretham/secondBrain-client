@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { data } from 'react-router'
+import { hostAtom } from '../atoms/host'
+import { useRecoilValue } from 'recoil'
 type Inputs = {
     type: string,
     link: string,
@@ -15,6 +17,7 @@ type Content = {
 }
 
 const AddLink = () => {
+    let hostUrl = useRecoilValue(hostAtom);
     const [message,setMessage] = useState("");
     const { register,handleSubmit, reset } = useForm<Inputs>()
     let onSubmit = async(data: Inputs)=>{
@@ -29,7 +32,7 @@ const AddLink = () => {
         if(!token){
             return;
         }
-        let response = await fetch("http://localhost:3000/api/v1/content",{
+        let response = await fetch(`${hostUrl}api/v1/content`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

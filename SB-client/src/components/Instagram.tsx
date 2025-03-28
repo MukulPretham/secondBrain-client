@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { hostAtom } from '../atoms/host';
+import { useRecoilValue } from 'recoil';
 
 interface YtDataType { _id: any, link: string; type: string; title: string; tags: string[]; }
 
 const Instagram = () => {
   const [ytData, setYtData] = useState<YtDataType[]>([]);
   const [loading, setLoading] = useState(false);
+  let hostUrl = useRecoilValue(hostAtom);
 
   useEffect(() => {
     async function FetchData() {
       setLoading(true);
       let token = localStorage.getItem('token');
       if (!token) return;
-      let response = await fetch('http://localhost:3000/api/v1/content', {
+      let response = await fetch(`${hostUrl}api/v1/content`, {
         headers: {
           'Content-Type': 'application/json',
           "authorization": token
@@ -32,7 +35,7 @@ const Instagram = () => {
     if(!token){
       return
     }
-    let response = await fetch(`http://localhost:3000/api/v1/content/${para}`, {
+    let response = await fetch(`${hostUrl}api/v1/content/${para}`, {
       method: "DELETE",
       headers: {
         'Content-Type': 'application/json',
