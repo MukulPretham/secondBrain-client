@@ -20,10 +20,11 @@ const Youtube = () => {
       let data: YtDataType[] = await response.json();
       console.log(data);
       setYtData(data);
-      setLoading(false);
+      
     }
     FetchData();
-  },[]);
+    setLoading(false);
+  },[ytData]);
 
   let handleDelete = async (para: any) => {
     let token = localStorage.getItem("token");
